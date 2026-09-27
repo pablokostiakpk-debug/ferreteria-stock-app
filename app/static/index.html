@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <title>Stock Ferretería</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div id="loginView" class="login-shell hidden">
+    <form id="loginForm" class="login-card">
+      <div class="brand-mark">SF</div>
+      <h1>Stock Ferretería</h1>
+      <p>Ingresá para gestionar el inventario.</p>
+      <label>Usuario<input id="loginUser" autocomplete="username" value="admin" required></label>
+      <label>Contraseña<input id="loginPassword" type="password" autocomplete="current-password" value="admin123" required></label>
+      <button class="btn btn-primary btn-xl" type="submit">INGRESAR</button>
+      <small>Usuarios iniciales de prueba: admin / admin123 y vendedor / vendedor123</small>
+    </form>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <header class="topbar">
+      <button id="menuBtn" class="icon-btn mobile-only" aria-label="Menú">☰</button>
+      <div class="brand"><span class="brand-mark small">SF</span><strong>Stock Ferretería</strong></div>
+      <div class="global-search-wrap"><input id="globalSearch" placeholder="Buscar nombre, código, marca, categoría o proveedor"></div>
+      <div class="user-box"><span id="userName"></span><button id="logoutBtn" class="btn btn-ghost">Salir</button></div>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+      <button data-page="dashboard" class="nav-btn active">⌂ <span>Inicio</span></button>
+      <button data-page="movement" class="nav-btn nav-highlight">▦ <span>Escanear producto</span></button>
+      <button data-page="products" class="nav-btn">▤ <span>Productos</span></button>
+      <button data-page="replenishment" class="nav-btn">⚠ <span>Reposición</span></button>
+      <button data-page="history" class="nav-btn">↺ <span>Historial</span></button>
+      <button data-page="suppliers" class="nav-btn">♙ <span>Proveedores</span></button>
+    </aside>
+
+    <main id="mainContent" class="main-content"></main>
+  </div>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button id="modalClose" class="modal-close" aria-label="Cerrar">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="https://unpkg.com/@zxing/browser@0.2.1"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
